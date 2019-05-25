@@ -20,14 +20,23 @@
     </header>
     <main role="main">
       <div class="container">
-        <div class="question">
-          Who holds the record for the most homeruns in Atlanta Braves franchise
-          history?
+        <form class="quiz_start">
+          <fieldset>
+            <legend>Atlanta Braves Quiz App</legend>
+            <p>Welcome to the Quiz!</p>
+            <p>Score as many points as you can and win a prize!</p>
+            <button class="js-start">Start</button>
+            <button class="js-quit">Quit</button>
+          </fieldset>
+        </form>
+        <div class="question js-hidden">
+          <p>Who holds the record for the most homeruns in Atlanta Braves franchise
+          history?</p>
         </div>
-        <div class="answer">Hank Aaron</div>
-        <div class="answer">Chipper Jones</div>
-        <div class="answer">Dale Murphy</div>
-        <div class="answer">Eddie Mathews</div>
+        <div class="a answer js-hidden"><p>Hank Aaron</p></div>
+        <div class="b answer js-hidden"><p>Chipper Jones</p></div>
+        <div class="c answer js-hidden"><p>Dale Murphy</p></div>
+        <div class="d answer js-hidden"><p>Eddie Mathews</p></div>
       </div>
     </main>
     <script

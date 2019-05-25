@@ -40,8 +40,9 @@ main {
   border-radius: 5px;
 }
 
-.container {
+.quiz_start, .container {
   width: 200px;
+  padding: 10px;
   height: 400px;
   margin-right: auto;
   margin-left: auto;
@@ -54,9 +55,10 @@ main {
   padding-bottom: 5px;
 }
 
-.question, .answer {
-  width: 180px;
-  height: 70px;
+.quiz_start, .question, .answer {
+  font-size: 0.8em;
+  width: 100%;
+  padding: 5px;
   margin-left: auto;
   margin-right: auto; 
   border-radius: 5px;
@@ -68,6 +70,10 @@ main {
 }
 /* This is separated from answer as I intend the final verison
 to have separate colors between classes */
+.quiz_start {
+  background-color: white;
+}
+
 .question {
   background-color: white;
 }
@@ -75,6 +81,13 @@ to have separate colors between classes */
 .answer {
   background-color: white;
 }
+
+
+/******jQuery Classes*****/
+.js-hidden {
+  display: none;
+}
+
 
 /******Media Queries******/
 
@@ -88,8 +101,8 @@ to have separate colors between classes */
       width: 300px;
   }
 
-  .question, .answer {
-      width: 280px;
+  .quiz_start, .question, .answer {
+      font-size: 1em;
   }
 }
 
@@ -106,13 +119,7 @@ to have separate colors between classes */
   .container {
       width: 600px;
   }
-
-  .question, .answer {
-      width: 560px;
-  }
 }
-
-
 
 /*****Full Screen******/
 @media screen and (min-width: 960px) {
@@ -122,9 +129,5 @@ to have separate colors between classes */
 
   .container {
       width: 800px;
-  }
-
-  .question, .answer {
-      width: 745px;
   }
 }
