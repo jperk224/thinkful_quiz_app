@@ -1,5 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
-    background-image: url('https://images.unsplash.com/photo-1503766587563-7cf366650cd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80');
+    background-image: linear-gradient(to right, blue, lightblue);
+  /* background-image: url('https://images.unsplash.com/photo-1503766587563-7cf366650cd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80'); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -7,4 +12,119 @@ html {
     height: 100%;
     width: 100%;
     position: relative;
+    font-family: Roboto, sans;
   }
+
+  
+body {
+  margin-top: 10px;
+}
+
+header {
+  width: 200px;
+  word-wrap: normal;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  color: white;
+  font-family: sans;
+}
+
+main {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.quiz_header {
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.container {
+  width: 200px;
+  height: 400px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.question, .answer {
+  width: 180px;
+  height: 70px;
+  margin-left: auto;
+  margin-right: auto; 
+  border-radius: 5px;
+  word-wrap: normal;
+  color: blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* This is separated from answer as I intend the final verison
+to have separate colors between classes */
+.question {
+  background-color: white;
+}
+
+.answer {
+  background-color: white;
+}
+
+/******Media Queries******/
+
+/******Phones******/
+@media screen and (min-width: 320px) {
+  header {
+      width: 300px;
+  }
+
+  .container {
+      width: 300px;
+  }
+
+  .question, .answer {
+      width: 280px;
+  }
+}
+
+/***** Tablets *****/
+@media screen and (min-width: 768px) {
+  body {
+      margin-top: 100px;
+  }
+  
+  header {
+      width: 600px;
+  }
+
+  .container {
+      width: 600px;
+  }
+
+  .question, .answer {
+      width: 560px;
+  }
+}
+
+
+
+/*****Full Screen******/
+@media screen and (min-width: 960px) {
+  header {
+      width: 800px;
+  }
+
+  .container {
+      width: 800px;
+  }
+
+  .question, .answer {
+      width: 745px;
+  }
+}
