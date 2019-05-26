@@ -110,7 +110,7 @@ function generateQuestionString(arr, index) {
     // return the element from 'questions' for the index given
     console.log('creating question');
     return `
-        <div class="question js-hidden">
+        <div class="question">
         <p>${arr[index].question}</p>
         </div>
             <div class="a answer"><p>${arr[index].answerA}</p></div>
@@ -122,32 +122,36 @@ function generateQuestionString(arr, index) {
 }
 
 //////////Event Listeners//////////
-function startGame() {
+function startGame(arr1, arr2) {
     $(".js-start, .js-quit").on('click', function(event) {
         console.log("'startGame' ran");
+        console.log(arr1);
         event.preventDefault();
         $(this).closest('form').addClass("js-hidden");
+        var index = createRandomQuestionIndex(arr1);
+        console.log(arr1);
+        renderQuestion(arr2, index);
     });
 }
 
 //////////View//////////
-function renderQuestion() {
+function renderQuestion(arr, index) {
     // render the welcome form to start the game or quit
     console.log('rendering question');
+    const question = generateQuestionString(arr, index);
+    $(question).insertAfter(".quiz_start");
 }
 
 function quizGame() {
     // callback function when the page loads
     // Welcome the user and allow them to start or quit
     // Activate the functions responsible for handling user events (e.g. start, quit, play, playAgain)
-    startGame();
+    startGame(questionIndexArray, questions);
     // TODO: loop through remaining questionIndex with event listeners to answer each question
-    while(questionIndexArray.length > 0) {
-        var index = createRandomQuestionIndex(questionIndexArray);
-        console.log(index);
-        var question = generateQuestionString(questions, index);
-        console.log(question);
-    }
+    // while(questionIndexArray.length > 0) {
+    //     var index = createRandomQuestionIndex(questionIndexArray);
+    //     renderQuestion(questions, index);
+    // }
 }
 
 // When the page loads, call quizGame
