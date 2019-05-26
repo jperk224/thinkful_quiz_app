@@ -93,7 +93,7 @@ const questions = [
     },
 ]
 
-const questionIndex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+const questionIndexArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 //////////controller//////////
 function createRandomQuestionIndex(arr) {
@@ -101,21 +101,24 @@ function createRandomQuestionIndex(arr) {
     // to be hidden by renderWelcome
     // and then unhidden when the user starts the game
     const questionIndex = Math.floor(Math.random() * arr.length);
+    let indexValue = arr[questionIndex];
     arr.splice(questionIndex, 1);
-    return questionIndex;
+    return indexValue;
 }
 
-function renderStart(arr) {
-    // render the welcome form to start the game or quit
-    console.log('rendering welcome form');
-    const firstQuestionIndex = createRandomQuestionIndex(arr);
-    console.log(firstQuestionIndex);
-    console.log(questions[firstQuestionIndex]);
-}
-
-function renderQuestion(index) {
-    // return the element from 'quesitons' for the index given
-
+function generateQuestionString(arr, index) {
+    // return the element from 'questions' for the index given
+    console.log('creating question');
+    return `
+        <div class="question js-hidden">
+        <p>${arr[index].question}</p>
+        </div>
+            <div class="a answer"><p>${arr[index].answerA}</p></div>
+            <div class="b answer"><p>${arr[index].answerB}</p></div>
+            <div class="c answer"><p>${arr[index].answerC}</p></div>
+            <div class="d answer"><p>${arr[index].answerD}</p></div>
+        </div>
+    `
 }
 
 //////////Event Listeners//////////
@@ -128,13 +131,23 @@ function startGame() {
 }
 
 //////////View//////////
+function renderQuestion() {
+    // render the welcome form to start the game or quit
+    console.log('rendering question');
+}
+
 function quizGame() {
     // callback function when the page loads
     // Welcome the user and allow them to start or quit
     // Activate the functions responsible for handling user events (e.g. start, quit, play, playAgain)
-    renderStart(questionIndex);
     startGame();
     // TODO: loop through remaining questionIndex with event listeners to answer each question
+    while(questionIndexArray.length > 0) {
+        var index = createRandomQuestionIndex(questionIndexArray);
+        console.log(index);
+        var question = generateQuestionString(questions, index);
+        console.log(question);
+    }
 }
 
 // When the page loads, call quizGame
