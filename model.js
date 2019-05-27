@@ -117,6 +117,8 @@ const questions = [
 // the resulting index array is the source of randomization in index.js
 // this allows for dynamically adjusting the size of the question object
 // array; allowing for the addition and removal of questions.
+// the second array of indicies is identical but does not get sliced during game play
+// and allows for game restart
 
 function createIndexArray(arr) {
     const indexArrayAsString = Object.keys(arr);
@@ -126,6 +128,8 @@ function createIndexArray(arr) {
 
 const questionIndexArray = createIndexArray(questions);
 console.log(questionIndexArray);
+const originalQuestionIndexArray = createIndexArray(questions);
+console.log(originalQuestionIndexArray);
 
 // create an array of random phrases to return on correct answers
 let randomCheers = [

@@ -36,7 +36,7 @@ function genarateFormString() {
 function generateQuestionString(arr, index) {
     // return the element from 'questions' for the index given
     console.log('creating question');
-    return `
+    return [`
         <div class="question">
         <p>${arr[index].question}</p>
         </div>
@@ -45,7 +45,8 @@ function generateQuestionString(arr, index) {
             <div class="c answer"><p>${arr[index].answerC}</p></div>
             <div class="d answer"><p>${arr[index].answerD}</p></div>
         </div>
-    `
+    `,
+    arr[index].correctAnswer]
 }
 
 function quizLoop(arr1, arr2) {
@@ -71,30 +72,50 @@ function renderForm() {
     $(".container").html(form);
 }
 
-function renderQuestion(arr, index) {
-    const question = generateQuestionString(arr, index);
+function renderQuestion(arr1, arr2) {
+    const index = createRandomQuestionIndex(arr1);        
+    const question = generateQuestionString(arr2, index)[0];
+    const answer = generateQuestionString(arr2, index)[1];
     console.log('rendering question');
     // $(question).insertAfter(".quiz_start");
     $(".container").html(question);
+    return answer;
 }
 
 //////////Event Listeners//////////
-function startGame(arr1, arr2) {
-    $(".js-start, .js-quit").on('click', function(event) {
+function nextQuestion(arr1, arr2) {
+    $(".js-start, .js-continue").on('click', function(event) {
         console.log("'startGame' ran");
         console.log(arr1);
         event.preventDefault();
-        // $(this).closest('form').addClass("js-hidden");
-        var index = createRandomQuestionIndex(arr1);
+        let correctAnswer = renderQuestion(arr1, arr2);
         console.log(arr1);
-        renderQuestion(arr2, index);
+        console.log(originalQuestionIndexArray);
+        console.log(correctAnswer);
+        console.log(typeof(correctAnswer));
+        return correctAnswer;
+        // $(this).closest('form').addClass("js-hidden");
+        // const index = createRandomQuestionIndex(arr1);
+        // console.log(arr1);
+        // renderQuestion(arr2, index);
     });
 }
 
-function answerQuestion() {
+function answerQuestion(str) {
     // listen for the player's answer selection
     // if the answer is correct, render congrats and add +1 to score
     // if the answer is wrong, render the right answer
+    $(".container").on('click', ".answer", function(event) {
+        let userAnswer = $(this).text();
+        var correctAnswer = str; // used var for scope reasons
+        console.log(userAnswer);
+        console.log(typeof(userAnswer));
+        if(userAnswer === correctAnswer) {
+            console.log('correct!!!');
+        } else {
+            console.log('Wrong!!!');
+        }
+    });
 }
 
 /////////Play game//////////
@@ -104,9 +125,9 @@ function quizGame() {
     // render initial score
     renderScore(0, questions);
     // Welcome the user and allow them to start or quit
-    // renderForm();
+    renderForm();
     // Activate the functions responsible for handling user events (e.g. start, quit, play, playAgain)
-    // startGame(questionIndexArray, questions);
+    answerQuestion(nextQuestion(questionIndexArray, questions));
     // loop through remaining questionIndex with event listeners to answer each question
     // quizLoop(questionIndexArray, questions);
 }
