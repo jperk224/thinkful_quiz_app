@@ -7,7 +7,10 @@ const questions = [
         answerB: 'Chipper Jones',
         answerC: 'Dale Murphy',
         answerD: 'Eddie Mathews',
-        correctAnswer: 'Hank Aaron'
+        correctAnswer: 'Hank Aaron',
+        imgURL: 'https://sabr.org/sites/default/files/images/AaronHenry1.jpg',
+        imgAlt: 'Hank Aaron'
+
     },
     {
         id: 2,
@@ -16,7 +19,9 @@ const questions = [
         answerB: 'Andruw Jones - 19 years, 180 days',
         answerC: 'Chipper Jones - 21 years, 187 days',
         answerD: 'Jason Heyward - 19 years, 82 days',
-        correctAnswer: 'Andruw Jones - 19 years, 180 days'
+        correctAnswer: 'Andruw Jones - 19 years, 180 days',
+        imgURL: 'https://sabr.org/sites/default/files/images/AaronHenry1.jpg',
+        imgAlt: 'Hank Aaron'
     },
     {
         id: 3,
@@ -25,7 +30,9 @@ const questions = [
         answerB: 'Philly Phanatic',
         answerC: 'San Diego Chicken',
         answerD: 'Blooper',
-        correctAnswer: 'Blooper'
+        correctAnswer: 'Blooper',
+        imgURL: 'https://sabr.org/sites/default/files/images/AaronHenry1.jpg',
+        imgAlt: 'Hank Aaron'
     },
     {
         id: 4,
@@ -34,7 +41,9 @@ const questions = [
         answerB: '.578',
         answerC: '.401',
         answerD: '.312',
-        correctAnswer: '.401'
+        correctAnswer: '.401',
+        imgURL: 'https://sabr.org/sites/default/files/images/AaronHenry1.jpg',
+        imgAlt: 'Hank Aaron'
     },
     {
         id: 5,
@@ -43,7 +52,9 @@ const questions = [
         answerB: 'Four',
         answerC: 'Two',
         answerD: 'Six',
-        correctAnswer: 'Three'
+        correctAnswer: 'Three',
+        imgURL: 'https://sabr.org/sites/default/files/images/AaronHenry1.jpg',
+        imgAlt: 'Hank Aaron'
     },
     {
         id: 6,
@@ -52,7 +63,9 @@ const questions = [
         answerB: 'John Smoltz',
         answerC: 'Tom Glavine',
         answerD: 'Kent Mercker',
-        correctAnswer: 'Kent Mercker'
+        correctAnswer: 'Kent Mercker',
+        imgURL: 'https://sabr.org/sites/default/files/images/AaronHenry1.jpg',
+        imgAlt: 'Hank Aaron'
     },
     {
         id: 7,
@@ -61,7 +74,9 @@ const questions = [
         answerB: 'Chipper Jones',
         answerC: 'Javy Lopez',
         answerD: 'Damon Berryhill',
-        correctAnswer: 'Mike Mordecai'
+        correctAnswer: 'Mike Mordecai',
+        imgURL: 'https://sabr.org/sites/default/files/images/AaronHenry1.jpg',
+        imgAlt: 'Hank Aaron'
     },
     {
         id: 8,
@@ -70,7 +85,9 @@ const questions = [
         answerB: 'Javy Lopex',
         answerC: 'Greg Maddux',
         answerD: 'Tom Glavine',
-        correctAnswer: 'Chipper Jones'
+        correctAnswer: 'Chipper Jones',
+        imgURL: 'https://sabr.org/sites/default/files/images/AaronHenry1.jpg',
+        imgAlt: 'Hank Aaron'
     },
     {
         id: 9,
@@ -79,7 +96,9 @@ const questions = [
         answerB: 'Doug Drabek',
         answerC: 'Roger Clemens',
         answerD: 'Andy Pettitte',
-        correctAnswer: 'Roger Clemens'
+        correctAnswer: 'Roger Clemens',
+        imgURL: 'https://sabr.org/sites/default/files/images/AaronHenry1.jpg',
+        imgAlt: 'Hank Aaron'
     },
     {
         id: 10,
@@ -88,7 +107,9 @@ const questions = [
         answerB: '2007',
         answerC: '2001',
         answerD: '1998',
-        correctAnswer: '2001'
+        correctAnswer: '2001',
+        imgURL: 'https://sabr.org/sites/default/files/images/AaronHenry1.jpg',
+        imgAlt: 'Hank Aaron'
     }
 ]
 
@@ -105,3 +126,12 @@ function createIndexArray(arr) {
 
 const questionIndexArray = createIndexArray(questions);
 console.log(questionIndexArray);
+
+// create an array of random phrases to return on correct answers
+let randomCheers = [
+    'Keep up the good work',
+    'You really know your stuff',
+    'Way to go',
+    'That one was hard and you knew it',
+    'You are the world\'s best Braves fan'
+]

@@ -50,9 +50,10 @@ function generateQuestionString(arr, index) {
 
 function quizLoop(arr1, arr2) {
     // loop through remaining questionIndex with event listeners to answer each question
-    while(arr.length > 0) {
-        var index = createRandomQuestionIndex(arr);
-        renderQuestion(questions, index);
+    while(arr1.length > 0) {
+        var index = createRandomQuestionIndex(arr1);
+        console.log(arr1);
+        // renderQuestion(questions, index);
         // TODO: Add quiz logic and score keeping
     }
 }
@@ -90,6 +91,12 @@ function startGame(arr1, arr2) {
     });
 }
 
+function answerQuestion() {
+    // listen for the player's answer selection
+    // if the answer is correct, render congrats and add +1 to score
+    // if the answer is wrong, render the right answer
+}
+
 /////////Play game//////////
 
 function quizGame() {
@@ -97,9 +104,9 @@ function quizGame() {
     // render initial score
     renderScore(0, questions);
     // Welcome the user and allow them to start or quit
-    renderForm();
+    // renderForm();
     // Activate the functions responsible for handling user events (e.g. start, quit, play, playAgain)
-    startGame(questionIndexArray, questions);
+    // startGame(questionIndexArray, questions);
     // loop through remaining questionIndex with event listeners to answer each question
     // quizLoop(questionIndexArray, questions);
 }

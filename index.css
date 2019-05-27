@@ -55,7 +55,7 @@ main {
   padding-bottom: 5px;
 }
 
-.quiz_start, .question, .answer {
+.quiz_start, .question, .answer, .answer_overlay {
   font-size: 0.8em;
   width: 100%;
   padding: 5px;
@@ -64,10 +64,28 @@ main {
   border-radius: 5px;
   word-wrap: normal;
   color: blue;
+}
+
+.quiz_start, .question, .answer, .answer_overlay {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
+.answer_overlay img {
+  height: 150px;
+  width: 150px;
+  border-radius: 5px;
+  align-self: center;
+  margin-bottom: 5px;
+}
+
+.js-continue {
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* This is separated from answer as I intend the final verison
 to have separate colors between classes */
 .quiz_start {
@@ -80,6 +98,10 @@ to have separate colors between classes */
 
 .answer {
   background-color: white;
+}
+
+.answer:hover {
+  cursor: pointer;
 }
 
 
