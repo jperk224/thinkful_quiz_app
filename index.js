@@ -57,19 +57,6 @@ function quizLoop(arr1, arr2) {
     }
 }
 
-//////////Event Listeners//////////
-function startGame(arr1, arr2) {
-    $(".js-start, .js-quit").on('click', function(event) {
-        console.log("'startGame' ran");
-        console.log(arr1);
-        event.preventDefault();
-        $(this).closest('form').addClass("js-hidden");
-        var index = createRandomQuestionIndex(arr1);
-        console.log(arr1);
-        renderQuestion(arr2, index);
-    });
-}
-
 //////////View//////////
 function renderScore(int, arr) {
     const score = generateScoreString(int, arr);
@@ -86,8 +73,24 @@ function renderForm() {
 function renderQuestion(arr, index) {
     const question = generateQuestionString(arr, index);
     console.log('rendering question');
-    $(question).insertAfter(".quiz_start");
+    // $(question).insertAfter(".quiz_start");
+    $(".container").html(question);
 }
+
+//////////Event Listeners//////////
+function startGame(arr1, arr2) {
+    $(".js-start, .js-quit").on('click', function(event) {
+        console.log("'startGame' ran");
+        console.log(arr1);
+        event.preventDefault();
+        // $(this).closest('form').addClass("js-hidden");
+        var index = createRandomQuestionIndex(arr1);
+        console.log(arr1);
+        renderQuestion(arr2, index);
+    });
+}
+
+/////////Play game//////////
 
 function quizGame() {
     // callback function when the page loads
