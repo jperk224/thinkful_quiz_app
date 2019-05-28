@@ -2,6 +2,28 @@
 //////////Model in model.js//////////
 
 //////////controller//////////
+
+// create an array of indicies from the 'question' array of question objects
+// the resulting index array is the source of randomization.
+// this allows for dynamically adjusting the size of the question object
+// array; allowing for the addition and removal of questions.
+
+function createIndexArray(arr) {
+    const indexArrayAsString = Object.keys(arr);
+    const indexArrayAsInt = indexArrayAsString.map(element => parseInt(element, 10));
+    return indexArrayAsInt;
+}
+
+// Shuffles array in place 
+function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+
 function createRandomQuestionIndex(arr) {
     // render the first random question from 'questions'
     // to be hidden by renderWelcome
@@ -19,7 +41,6 @@ function generateScoreString(int, arr) {
 }
 
 function genarateFormString() {
-    console.log('creating form');
     return `
     <form class="quiz_start">
         <fieldset>
@@ -30,6 +51,16 @@ function genarateFormString() {
             <button class="js-quit">Quit</button>
         </fieldset>
     </form>
+    `
+}
+
+function genarateQuitString() {
+    return `
+        <div class="answer_overlay">
+            <p>Thanks for Playing!</p>
+            <p>And remember, Go Braves!!</p>
+            <img src="https://sabr.org/sites/default/files/images/AaronHenry1.jpg" alt="Hank Aaron">
+        </div>
     `
 }
 
@@ -62,14 +93,25 @@ function quizLoop(arr1, arr2) {
 //////////View//////////
 function renderScore(int, arr) {
     const score = generateScoreString(int, arr);
-    console.log("rendering score");
     $(".score").html(score);
 }
 
 function renderForm() {
     const form = genarateFormString();
-    console.log('rendering form');
     $(".container").html(form);
+    $(".js-start").on('click', function(event) {
+        event.preventDefault();
+        console.log('Game Started!!');
+    });
+    $(".js-quit").on('click', function(event) {
+        event.preventDefault();
+        renderQuit();
+    });
+}
+
+function renderQuit() {
+    const quit = genarateQuitString();
+    $(".container").html(quit);
 }
 
 function renderQuestion(arr1, arr2) {
@@ -124,10 +166,16 @@ function quizGame() {
     // callback function when the page loads
     // render initial score
     renderScore(0, questions);
+    // create index array to point to questions
+    const questionIndexArray = createIndexArray(questions);
+    // randomize the index array
+    const gameArray = shuffle(questionIndexArray)
+    console.log(gameArray);
     // Welcome the user and allow them to start or quit
+    // set up event listeners for game start or quit
     renderForm();
     // Activate the functions responsible for handling user events (e.g. start, quit, play, playAgain)
-    answerQuestion(nextQuestion(questionIndexArray, questions));
+    // answerQuestion(nextQuestion(questionIndexArray, questions));
     // loop through remaining questionIndex with event listeners to answer each question
     // quizLoop(questionIndexArray, questions);
 }
