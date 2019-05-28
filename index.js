@@ -23,16 +23,46 @@ function shuffle(arr) {
     return arr;
 }
 
-
-function createRandomQuestionIndex(arr) {
-    // render the first random question from 'questions'
-    // to be hidden by renderWelcome
-    // and then unhidden when the user starts the game
-    const questionIndex = Math.floor(Math.random() * arr.length);
-    let indexValue = arr[questionIndex];
-    arr.splice(questionIndex, 1);
-    return indexValue;
+function generateQuestionString(arr, index) {
+    // return the element from 'questions' for the index given
+    return `
+        <div class="question">
+        <p>${arr[index].question}</p>
+        </div>
+            <div class="a answer"><p>${arr[index].answerA}</p></div>
+            <div class="b answer"><p>${arr[index].answerB}</p></div>
+            <div class="c answer"><p>${arr[index].answerC}</p></div>
+            <div class="d answer"><p>${arr[index].answerD}</p></div>
+        </div>
+    `
 }
+
+function playGame(arr1, arr2) {
+    console.log('game started!!!');
+    for(let i = arr1.length - 1; i >= 0; i--) {
+        const question = generateQuestionString(arr2, arr1[i]);
+        console.log(question);
+        $(".container").html(question);
+        // listen for the player's answer selection
+        // if the answer is correct, render congrats and add +1 to score
+        // if the answer is wrong, render the right answer
+        $(".container").on('click', ".answer", function(event) {
+                let userAnswer = event.data.value;
+            });
+        console.log(userAnswer + ' hello!!');
+    }
+}   
+
+
+// function createRandomQuestionIndex(arr) {
+//     // render the first random question from 'questions'
+//     // to be hidden by renderWelcome
+//     // and then unhidden when the user starts the game
+//     const questionIndex = Math.floor(Math.random() * arr.length);
+//     let indexValue = arr[questionIndex];
+//     arr.splice(questionIndex, 1);
+//     return indexValue;
+// }
 
 function generateScoreString(int, arr) {
     return `
@@ -64,22 +94,6 @@ function genarateQuitString() {
     `
 }
 
-function generateQuestionString(arr, index) {
-    // return the element from 'questions' for the index given
-    console.log('creating question');
-    return [`
-        <div class="question">
-        <p>${arr[index].question}</p>
-        </div>
-            <div class="a answer"><p>${arr[index].answerA}</p></div>
-            <div class="b answer"><p>${arr[index].answerB}</p></div>
-            <div class="c answer"><p>${arr[index].answerC}</p></div>
-            <div class="d answer"><p>${arr[index].answerD}</p></div>
-        </div>
-    `,
-    arr[index].correctAnswer]
-}
-
 function quizLoop(arr1, arr2) {
     // loop through remaining questionIndex with event listeners to answer each question
     while(arr1.length > 0) {
@@ -96,12 +110,12 @@ function renderScore(int, arr) {
     $(".score").html(score);
 }
 
-function renderForm() {
+function renderFormAndStartGame(arr1, arr2) {
     const form = genarateFormString();
     $(".container").html(form);
     $(".js-start").on('click', function(event) {
         event.preventDefault();
-        console.log('Game Started!!');
+        playGame(arr1, arr2);
     });
     $(".js-quit").on('click', function(event) {
         event.preventDefault();
@@ -114,15 +128,15 @@ function renderQuit() {
     $(".container").html(quit);
 }
 
-function renderQuestion(arr1, arr2) {
-    const index = createRandomQuestionIndex(arr1);        
-    const question = generateQuestionString(arr2, index)[0];
-    const answer = generateQuestionString(arr2, index)[1];
-    console.log('rendering question');
-    // $(question).insertAfter(".quiz_start");
-    $(".container").html(question);
-    return answer;
-}
+// function renderQuestion(arr, index) {
+//     // const index = createRandomQuestionIndex(arr1);        
+//     const question = generateQuestionString(arr, index);
+//     // const answer = generateQuestionString(arr2, index)[1];
+//     // console.log('rendering question');
+//     // $(question).insertAfter(".quiz_start");
+//     $(".container").html(question);
+//     // return answer;
+// }
 
 //////////Event Listeners//////////
 function nextQuestion(arr1, arr2) {
@@ -170,14 +184,9 @@ function quizGame() {
     const questionIndexArray = createIndexArray(questions);
     // randomize the index array
     const gameArray = shuffle(questionIndexArray)
-    console.log(gameArray);
     // Welcome the user and allow them to start or quit
     // set up event listeners for game start or quit
-    renderForm();
-    // Activate the functions responsible for handling user events (e.g. start, quit, play, playAgain)
-    // answerQuestion(nextQuestion(questionIndexArray, questions));
-    // loop through remaining questionIndex with event listeners to answer each question
-    // quizLoop(questionIndexArray, questions);
+    renderFormAndStartGame(gameArray, questions);
 }
 
 // When the page loads, call quizGame
