@@ -14,7 +14,8 @@ function createQuestion(gameArray) {
   let wrongForm = ``;
   if (questionNumber < gameArray.length) {
     questionString = `
-            <fieldset>
+    <form class="question">        
+    <fieldset>
                 <legend>Question ${questionNumber + 1} of ${
       gameArray.length
     }</legend> 
@@ -32,6 +33,7 @@ function createQuestion(gameArray) {
                   gameArray[questionNumber].answers[3]
                 }</button>
             </fieldset>
+            </form>
         `;
     correctAnswer = gameArray[questionNumber].correctAnswer;
     correctForm = `
@@ -56,22 +58,30 @@ function createQuestion(gameArray) {
   return [questionString, correctAnswer, correctForm, wrongForm];
 }
 
+// play through questions
+function takeQuiz(playerScore, gameArray) {
+  let questionAnswer = renderQuestion(gameArray);
+  answerQuestion(questionAnswer);
+  nextQuestion(gameArray);
+}
+
 // answer question
 function answerQuestion(correctAnswer) {
-  $(".answer").on("click", function(event) {
+  $(".question_container").on("click", ".answer", function(event) {
     event.preventDefault();
     const userAnswer = $(this).text();
+    $(".question_container").find('form').remove();
     if (userAnswer === correctAnswer) {
       playerScore++;
       renderScore(playerScore, gameArray);
-      $(this)
-        .closest("form")
-        .addClass("hidden");
+      // $(this)
+      //   .closest("form")
+      //   .addClass("hidden");
       renderCorrectForm(gameArray)
     } else {
-      $(this)
-        .closest("form")
-        .addClass("hidden");
+      // $(this)
+      //   .closest("form")
+      //   .addClass("hidden");
       renderScore(playerScore, gameArray);
       renderWrongForm(gameArray);
     }
@@ -87,8 +97,8 @@ function nextQuestion(gameArray) {
     } else {
       questionNumber = 0;
     }
-    $(".feedback").addClass("hidden");
-    console.log(questionNumber);
+    $(".feedback").remove();
+    renderQuestion(gameArray);
   });
 }
 
@@ -111,7 +121,7 @@ function startGame(indexArray, quesitonsArr) {
 
 function renderQuestion(gameArray) {
   let singleQuestionArray = createQuestion(gameArray);
-  $(".question").html(singleQuestionArray[0]);
+  $(".question_container").html(singleQuestionArray[0]);
   return singleQuestionArray[1];
 }
 
@@ -127,10 +137,12 @@ function renderWrongForm(gameArray) {
 
 function playGame() {
   renderScore(playerScore, gameArray);
-  let questionAnswer = renderQuestion(gameArray);
   startGame();
-  answerQuestion(questionAnswer);
-  nextQuestion(gameArray);
+  takeQuiz(playerScore, gameArray);
+  // let questionAnswer = renderQuestion(gameArray);
+  // startGame();
+  // answerQuestion(questionAnswer);
+  // nextQuestion(gameArray);
 }
 
 $(playGame);
