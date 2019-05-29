@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 //////////Model in model.js//////////
 
 //////////controller functions//////////
@@ -8,38 +8,51 @@
 // this allows for dynamically adjusting the size of the question object
 // array, allowing for the addition and removal of questions.
 function createIndexArray(questionsArr) {
-    const indexArrayAsString = Object.keys(questionsArr);
-    const indexArrayAsInt = indexArrayAsString.map(element => parseInt(element, 10));
-    return indexArrayAsInt;
+  const indexArrayAsString = Object.keys(questionsArr);
+  const indexArrayAsInt = indexArrayAsString.map(element =>
+    parseInt(element, 10)
+  );
+  return indexArrayAsInt;
 }
 
 // Shuffles the question index pointer array in place to randomize game questions
 // Taking advantage of pass by reference, modifying the array passed in as the argument
 function shuffle(indexArray) {
-    for (let i = indexArray.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [indexArray[i], indexArray[j]] = [indexArray[j], indexArray[i]];
-    }
-    return indexArray;
+  for (let i = indexArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indexArray[i], indexArray[j]] = [indexArray[j], indexArray[i]];
+  }
+  return indexArray;
 }
 
+//////////view functions//////////
 
-
-
-
+function renderStart() {
+  let startFormString = `
+    <form class="quiz_start">
+        <fieldset>
+            <legend>Atlanta Braves Quiz App</legend>
+            <p>Welcome to the Quiz!</p>
+            <p>Score as many points as you can and win a prize!</p>
+            <button class="js-start">Start</button>
+        </fieldset>
+    </form>`;
+    $(".container").html(startFormString);
+}
 
 /////////Play game//////////
 
 function quizGame() {
-    // callback function when the page loads
-    // render initial score
-    // create index array to point to questions
-    const questionIndexArray = createIndexArray(questions);
-    // randomize the index array to randomize the game's questions
-    const gameArray = shuffle(questionIndexArray);
-    // Welcome the user and allow them to start the game
-    // set up event listeners for game start or quit
-    // renderFormAndStartGame(gameArray, questions);
+  // callback function when the page loads
+  // render initial score
+  // create index array to point to questions
+  const questionIndexArray = createIndexArray(questions);
+  // randomize the index array to randomize the game's questions
+  const gameArray = shuffle(questionIndexArray);
+  // Welcome the user and allow them to start the game
+  renderStart();
+  // set up event listeners for game start or quit
+  // renderFormAndStartGame(gameArray, questions);
 }
 
 // When the page loads, call quizGame
