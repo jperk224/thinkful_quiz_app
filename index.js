@@ -25,19 +25,25 @@ function shuffle(indexArray) {
   return indexArray;
 }
 
+// Play the game
+function playGame() {
+  renderQuestion(questions, 5);
+}
+
 //////////listener functions//////////
+// Remove the welome form and start the game
 function startGame() {
-  $(".js-start").on('click', function(event) {
+  $(".js-start").on("click", function(event) {
     event.preventDefault();
     console.log($(this).text());
-    // call game play function
+    playGame();
   });
 }
 
 //////////view functions//////////
 
 // Render the player's score
-// Arguments -- player's score, question index pointer array
+// Parameters -- player's score, question index pointer array
 function renderScore(score, indexArray) {
   const scoreString = `<h2>Score: ${score}/${indexArray.length}</h2>`;
   $(".score").html(scoreString);
@@ -45,7 +51,7 @@ function renderScore(score, indexArray) {
 
 // Render the welcome form
 function renderStart() {
-  let startFormString = `
+  const startFormString = `
     <form class="quiz_start">
         <fieldset>
             <legend>Atlanta Braves Quiz App</legend>
@@ -54,8 +60,28 @@ function renderStart() {
             <button class="js-start">Start</button>
         </fieldset>
     </form>`;
-    $(".container").html(startFormString);
+  $(".container").html(startFormString);
 }
+
+// Render a question
+// Parameters -- array of questions, index to identify question to render
+function renderQuestion(questionArray, indexValue) {
+  const questionString = `
+    <form class="question">
+      <fieldset>
+          <legend>Question X of X</legend> 
+          <p>${questionArray[indexValue].question}</p>
+          <button class="a answer">${questionArray[indexValue].answerA}</button>
+          <button class="b answer">${questionArray[indexValue].answerB}</button>
+          <button class="c answer">${questionArray[indexValue].answerC}</button>
+          <button class="d answer">${questionArray[indexValue].answerD}</button>
+      </fieldset>
+  `;
+  // TODO: make 'Question X of X dynamic
+  $(".container").html(questionString);
+}
+
+// TODO: add a refresh funciton to render score, form, and Question tracking refresh for each new question
 
 /////////Play game//////////
 
