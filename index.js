@@ -2,7 +2,19 @@ function createGameArray(questionArray) {
   return [...questionArray];
 }
 
+// Shuffles the question index pointer array in place to randomize game questions
+// Taking advantage of pass by reference, modifying the array passed in as the argument
+function shuffle(questionArray) {
+  for (let i = questionArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [questionArray[i], questionArray[j]] = [questionArray[j], questionArray[i]];
+  }
+  return questionArray;
+}
+
+
 let gameArray = createGameArray(questions);
+shuffle(gameArray);
 let playerScore = 0;
 let questionNumber = 0;
 
@@ -53,7 +65,16 @@ function createQuestion(gameArray) {
       </form>
     `;
   } else {
-    questionString = `Game Over`;
+    questionString = `
+    <form class="game_over">
+      <fieldset>
+        <p>Game Over! Your final score is ${playerScore} out of ${gameArray.length}</p>
+        <p>Would you like to play again?</p>
+        <button class="continue">Yes</button>
+        <button class="quit">No</button>
+      </fieldset>
+    </form>
+  `;
   }
   return [questionString, correctAnswer, correctForm, wrongForm];
 }
@@ -90,6 +111,9 @@ function nextQuestion(gameArray) {
       questionNumber++;
     } else {
       questionNumber = 0;
+      playerScore = 0;
+      shuffle(gameArray);
+      renderScore(playerScore, gameArray);
     }
     $(".feedback").remove();
     let questionAnswer = renderQuestion(gameArray);
