@@ -27,6 +27,14 @@ function shuffle(indexArray) {
 
 //////////view functions//////////
 
+// Render the player's score
+// Arguments -- player's score, question index pointer array
+function renderScore(score, indexArray) {
+  const scoreString = `<h2>Score: ${score}/${indexArray.length}</h2>`;
+  $(".score").html(scoreString);
+}
+
+// Render the welcome form
 function renderStart() {
   let startFormString = `
     <form class="quiz_start">
@@ -46,9 +54,12 @@ function quizGame() {
   // callback function when the page loads
   // render initial score
   // create index array to point to questions
+  let playerScore = 0;
   const questionIndexArray = createIndexArray(questions);
   // randomize the index array to randomize the game's questions
   const gameArray = shuffle(questionIndexArray);
+  // Render the initial score
+  renderScore(playerScore, questionIndexArray);
   // Welcome the user and allow them to start the game
   renderStart();
   // set up event listeners for game start or quit
