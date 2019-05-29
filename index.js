@@ -4,7 +4,7 @@ function createGameArray(questionArray) {
 
 let gameArray = createGameArray(questions);
 let playerScore = 0;
-let questionNumber = 2;
+let questionNumber = 0;
 
 // Create a question
 function createQuestion(gameArray) {
@@ -15,7 +15,7 @@ function createQuestion(gameArray) {
   if (questionNumber < gameArray.length) {
     questionString = `
             <fieldset>
-                <legend>Question ${questionNumber} of ${
+                <legend>Question ${questionNumber + 1} of ${
       gameArray.length
     }</legend> 
                 <p>${gameArray[questionNumber].question}</p>
@@ -35,16 +35,20 @@ function createQuestion(gameArray) {
         `;
     correctAnswer = gameArray[questionNumber].correctAnswer;
     correctForm = `
-            <fieldset>
-                <p>You got it! ${correctAnswer} is correct!</p>
-                <button class="continue">Continue</button>
-            </fieldset>
+      <form class="feedback">        
+        <fieldset>
+          <p>You got it! ${correctAnswer} is correct!</p>
+          <button class="continue">Continue</button>
+        </fieldset>
+      </form>
     `;
     wrongForm = `
-    <fieldset>
-                <p>Wrong! The correct answer is ${correctAnswer}</p>
-                <button class="continue">Continue</button>
-            </fieldset>
+      <form class="feedback">
+        <fieldset>
+          <p>Wrong! The correct answer is ${correctAnswer}</p>
+          <button class="continue">Continue</button>
+        </fieldset>
+      </form>
     `;
   } else {
     questionString = `Game Over`;
@@ -60,16 +64,32 @@ function answerQuestion(correctAnswer) {
     if (userAnswer === correctAnswer) {
       playerScore++;
       renderScore(playerScore, gameArray);
+      $(this)
+        .closest("form")
+        .addClass("hidden");
       renderCorrectForm(gameArray)
     } else {
+      $(this)
+        .closest("form")
+        .addClass("hidden");
+      renderScore(playerScore, gameArray);
       renderWrongForm(gameArray);
     }
   });
 }
 
 // Continue to next quesiton from feedback div
-function nextQuestion() {
-  // event listener to close feedback div and render next question
+function nextQuestion(gameArray) {
+  $(".question_container").on("click", ".continue", function(event) {
+    event.preventDefault(); 
+    if(questionNumber < gameArray.length) {
+      questionNumber++;
+    } else {
+      questionNumber = 0;
+    }
+    $(".feedback").addClass("hidden");
+    console.log(questionNumber);
+  });
 }
 
 // Render the player's score
@@ -97,12 +117,12 @@ function renderQuestion(gameArray) {
 
 function renderCorrectForm(gameArray) {
   let singleQuestionArray = createQuestion(gameArray);
-  $(".question").html(singleQuestionArray[2]);
+  $(".question_container").html(singleQuestionArray[2]);
 }
 
 function renderWrongForm(gameArray) {
   let singleQuestionArray = createQuestion(gameArray);
-  $(".question").html(singleQuestionArray[3]);
+  $(".question_container").html(singleQuestionArray[3]);
 }
 
 function playGame() {
@@ -110,7 +130,7 @@ function playGame() {
   let questionAnswer = renderQuestion(gameArray);
   startGame();
   answerQuestion(questionAnswer);
-  // renderNextQuestion();
+  nextQuestion(gameArray);
 }
 
 $(playGame);
