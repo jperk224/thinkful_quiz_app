@@ -74,14 +74,8 @@ function answerQuestion(correctAnswer) {
     if (userAnswer === correctAnswer) {
       playerScore++;
       renderScore(playerScore, gameArray);
-      // $(this)
-      //   .closest("form")
-      //   .addClass("hidden");
       renderCorrectForm(gameArray)
     } else {
-      // $(this)
-      //   .closest("form")
-      //   .addClass("hidden");
       renderScore(playerScore, gameArray);
       renderWrongForm(gameArray);
     }
@@ -98,7 +92,8 @@ function nextQuestion(gameArray) {
       questionNumber = 0;
     }
     $(".feedback").remove();
-    renderQuestion(gameArray);
+    let questionAnswer = renderQuestion(gameArray);
+    answerQuestion(questionAnswer);
   });
 }
 
