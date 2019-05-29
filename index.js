@@ -43,6 +43,8 @@ function answerQuestion(correctAnswer) {
         const userAnswer = $(this).text();
         if(userAnswer === correctAnswer) {
           console.log('correct!');
+          playerScore ++;
+          renderScore(playerScore, gameArray);
         } else {
           console.log('wrong!');
         }
