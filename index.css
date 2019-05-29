@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+}
+
+body {
+}
+
+header {
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+.quiz_header {
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  width: 280px;
+  margin: 5px;
+}
+
+main {
+  margin-top: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 280px;
+  height: 400px;
+  text-align: center;
+}
+
+.container {
+}
+
+.welcome_form {
+}
+
+.welcome_form > fieldset {
+  border: none;
+}
