@@ -26,17 +26,23 @@ function shuffle(indexArray) {
 }
 
 // Play the game
-function playGame() {
-  renderQuestion(questions, 5);
+// Parameters -- question index pointer array, array of questions
+function playGame(indexArray, questionsArr) {
+  for (let i = indexArray.length - 1; i >= 0; i--) {
+    let question = renderQuestion(questionsArr, indexArray[i]);
+    console.log(question);
+    console.log(question.correctAnswer);
+  }
 }
 
 //////////listener functions//////////
 // Remove the welome form and start the game
-function startGame() {
+// Parameters -- question index pointer array, array of questions
+function startGame(indexArray, quesitonsArr) {
   $(".js-start").on("click", function(event) {
     event.preventDefault();
-    console.log($(this).text());
-    playGame();
+    $(".js-start").closest("form").addClass("js-hidden");
+    playGame(indexArray, quesitonsArr);
   });
 }
 
@@ -65,20 +71,21 @@ function renderStart() {
 
 // Render a question
 // Parameters -- array of questions, index to identify question to render
-function renderQuestion(questionArray, indexValue) {
+function renderQuestion(questionsArr, indexValue) {
   const questionString = `
     <form class="question">
       <fieldset>
           <legend>Question X of X</legend> 
-          <p>${questionArray[indexValue].question}</p>
-          <button class="a answer">${questionArray[indexValue].answerA}</button>
-          <button class="b answer">${questionArray[indexValue].answerB}</button>
-          <button class="c answer">${questionArray[indexValue].answerC}</button>
-          <button class="d answer">${questionArray[indexValue].answerD}</button>
+          <p>${questionsArr[indexValue].question}</p>
+          <button class="a answer">${questionsArr[indexValue].answerA}</button>
+          <button class="b answer">${questionsArr[indexValue].answerB}</button>
+          <button class="c answer">${questionsArr[indexValue].answerC}</button>
+          <button class="d answer">${questionsArr[indexValue].answerD}</button>
       </fieldset>
   `;
   // TODO: make 'Question X of X dynamic
   $(".container").html(questionString);
+  return questionsArr[indexValue];
 }
 
 // TODO: add a refresh funciton to render score, form, and Question tracking refresh for each new question
@@ -97,8 +104,8 @@ function quizGame() {
   renderScore(playerScore, questionIndexArray);
   // Welcome the user and allow them to start the game
   renderStart();
-  // set up event listener for game start
-  startGame();
+  // set up event listener for game start and play the game
+  startGame(gameArray, questions);
 }
 
 // When the page loads, call quizGame
