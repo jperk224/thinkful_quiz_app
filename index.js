@@ -25,6 +25,15 @@ function shuffle(indexArray) {
   return indexArray;
 }
 
+//////////listener functions//////////
+function startGame() {
+  $(".js-start").on('click', function(event) {
+    event.preventDefault();
+    console.log($(this).text());
+    // call game play function
+  });
+}
+
 //////////view functions//////////
 
 // Render the player's score
@@ -62,8 +71,8 @@ function quizGame() {
   renderScore(playerScore, questionIndexArray);
   // Welcome the user and allow them to start the game
   renderStart();
-  // set up event listeners for game start or quit
-  // renderFormAndStartGame(gameArray, questions);
+  // set up event listener for game start
+  startGame();
 }
 
 // When the page loads, call quizGame
