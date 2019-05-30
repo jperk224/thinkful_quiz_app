@@ -76,6 +76,7 @@ button {
   background-image: linear-gradient(rgba(206,17,65), #fff);
   border-radius: 15px;
   color: rgb(19, 39, 79);
+  font-size: 0.9em;
 }
 
 button:hover {
@@ -104,13 +105,24 @@ button:hover {
   margin-top: 20px;
 }
 
+.question_container button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .hidden {
   display: none;
 }
 
-.welcome_form > fieldset,
-.question > fieldset {
+fieldset {
   border: none;
+  padding: 0;
+}
+
+.quit_game {
+  font-size: 1.2em;
+  padding-top: 50px;
+
 }
 
 .question_tracker {

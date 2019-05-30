@@ -79,7 +79,7 @@ function createHTML(gameArray) {
   }
 
   quitGame = `
-  <form class="quit_gamer">
+  <form class="quit_game">
       <fieldset>
         <p>Thanks for Playing!</p>
         <p>And remember, Go Braves!!</p>
