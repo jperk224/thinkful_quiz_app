@@ -120,6 +120,7 @@ function nextQuestion(gameArray) {
     event.preventDefault(); 
     if(questionNumber < gameArray.length) {
       questionNumber++;
+      renderQuestionTracker(gameArray);
       $(".feedback").remove();
       let questionAnswer = renderQuestion(gameArray);
       answerQuestion(questionAnswer);
@@ -167,6 +168,13 @@ function quitGame(gameArray) {
 function renderScore(score, gameArray) {
   const scoreString = `<h2>Score: ${score}/${gameArray.length}</h2>`;
   $(".score").html(scoreString);
+}  
+
+function renderQuestionTracker(gameArray) {
+  const questionsAttemptedString = `Questions Attempted: ${questionNumber}`;
+  const questionsRemainingString = `Questions Remaining: ${gameArray.length - questionNumber}`;
+  $(".questions_attempted").html(questionsAttemptedString);
+  $(".questions_remaining").html(questionsRemainingString);
 }
 
 function startGame(indexArray, quesitonsArr) {
@@ -202,6 +210,7 @@ function renderQuit(gameArray) {
 
 function playGame() {
   renderScore(playerScore, gameArray);
+  renderQuestionTracker(gameArray);
   startGame();
   takeQuiz(playerScore, gameArray);
   newGame();

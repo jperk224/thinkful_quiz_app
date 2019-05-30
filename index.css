@@ -52,3 +52,11 @@ main {
 .welcome_form > fieldset {
   border: none;
 }
+
+.question_tracker {
+  width: 280px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
