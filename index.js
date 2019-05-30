@@ -18,12 +18,13 @@ shuffle(gameArray);
 let playerScore = 0;
 let questionNumber = 0;
 
-// Create a question
-function createQuestion(gameArray) {
+// Create html content
+function createHTML(gameArray) {
   let questionString = ``;
   let correctAnswer = ``;
   let correctForm = ``;
   let wrongForm = ``;
+  let quitGame = ``;
   if (questionNumber < gameArray.length) {
     questionString = `
     <form class="question">        
@@ -76,7 +77,17 @@ function createQuestion(gameArray) {
     </form>
   `;
   }
-  return [questionString, correctAnswer, correctForm, wrongForm];
+
+  quitGame = `
+  <form class="quit_gamer">
+      <fieldset>
+        <p>Thanks for Playing!</p>
+        <p>And remember, Go Braves!!</p>
+      </fieldset>
+    </form>
+  `
+
+  return [questionString, correctAnswer, correctForm, wrongForm, quitGame];
 }
 
 // play through questions
@@ -119,6 +130,16 @@ function newGame() {
   $(".question_container").on("click", ".new_game", function(event) {
     event.preventDefault();
     location.reload();
+  });
+}
+
+function quitGame(gameArray) {
+  $(".question_container").on("click", ".quit", function(event) {
+    event.preventDefault();
+    renderQuit(gameArray);
+  });
+}
+
     // questionNumber = 0;
     // playerScore = 0;
     // shuffle(gameArray);
@@ -128,8 +149,7 @@ function newGame() {
     // $(".question_container").addClass("hidden");
     // startGame();
     // takeQuiz(playerScore, gameArray);
-  });
-}
+  
     
   
     // } else {
@@ -160,19 +180,24 @@ function startGame(indexArray, quesitonsArr) {
 }
 
 function renderQuestion(gameArray) {
-  let singleQuestionArray = createQuestion(gameArray);
+  let singleQuestionArray = createHTML(gameArray);
   $(".question_container").html(singleQuestionArray[0]);
   return singleQuestionArray[1];
 }
 
 function renderCorrectForm(gameArray) {
-  let singleQuestionArray = createQuestion(gameArray);
+  let singleQuestionArray = createHTML(gameArray);
   $(".question_container").html(singleQuestionArray[2]);
 }
 
 function renderWrongForm(gameArray) {
-  let singleQuestionArray = createQuestion(gameArray);
+  let singleQuestionArray = createHTML(gameArray);
   $(".question_container").html(singleQuestionArray[3]);
+}
+
+function renderQuit(gameArray) {
+  let singleQuestionArray = createHTML(gameArray);
+  $(".question_container").html(singleQuestionArray[4]);
 }
 
 function playGame() {
@@ -180,6 +205,7 @@ function playGame() {
   startGame();
   takeQuiz(playerScore, gameArray);
   newGame();
+  quitGame(gameArray);
 }
 
 $(playGame);
