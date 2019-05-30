@@ -70,7 +70,7 @@ function createQuestion(gameArray) {
       <fieldset>
         <p>Game Over! Your final score is ${playerScore} out of ${gameArray.length}</p>
         <p>Would you like to play again?</p>
-        <button class="continue">Yes</button>
+        <button class="new_game">Yes</button>
         <button class="quit">No</button>
       </fieldset>
     </form>
@@ -109,17 +109,38 @@ function nextQuestion(gameArray) {
     event.preventDefault(); 
     if(questionNumber < gameArray.length) {
       questionNumber++;
-    } else {
-      questionNumber = 0;
-      playerScore = 0;
-      shuffle(gameArray);
-      renderScore(playerScore, gameArray);
+      $(".feedback").remove();
+      let questionAnswer = renderQuestion(gameArray);
+      answerQuestion(questionAnswer);
     }
-    $(".feedback").remove();
-    let questionAnswer = renderQuestion(gameArray);
-    answerQuestion(questionAnswer);
   });
 }
+function newGame() {
+  $(".question_container").on("click", ".new_game", function(event) {
+    event.preventDefault();
+    location.reload();
+    // questionNumber = 0;
+    // playerScore = 0;
+    // shuffle(gameArray);
+    // renderScore(playerScore, gameArray);
+    // $(this).closest('form').remove();
+    // $(".js_game_start").closest("form").removeClass("hidden");
+    // $(".question_container").addClass("hidden");
+    // startGame();
+    // takeQuiz(playerScore, gameArray);
+  });
+}
+    
+  
+    // } else {
+    //   questionNumber = 0;
+    //   playerScore = 0;
+    //   shuffle(gameArray);
+    //   renderScore(playerScore, gameArray);
+    // }
+    // $(".feedback").remove();
+    // let questionAnswer = renderQuestion(gameArray);
+    // answerQuestion(questionAnswer);
 
 // Render the player's score
 // Parameters -- player's score, question index pointer array
@@ -158,10 +179,7 @@ function playGame() {
   renderScore(playerScore, gameArray);
   startGame();
   takeQuiz(playerScore, gameArray);
-  // let questionAnswer = renderQuestion(gameArray);
-  // startGame();
-  // answerQuestion(questionAnswer);
-  // nextQuestion(gameArray);
+  newGame();
 }
 
 $(playGame);
