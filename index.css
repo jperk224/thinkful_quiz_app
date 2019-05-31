@@ -111,6 +111,14 @@ button:hover {
   margin-bottom: 5px;
 }
 
+.question_container img {
+  height: 200px;
+  width: 150px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border-radius: 50%;
+}
+
 .hidden {
   display: none;
 }

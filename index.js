@@ -53,6 +53,7 @@ function createHTML(gameArray) {
       <form class="feedback">        
         <fieldset>
           <p>You got it! ${correctAnswer} is correct!</p>
+          <img src="${gameArray[questionNumber].imgAttr.url}" alt="${gameArray[questionNumber].imgAttr.alt}" title="${gameArray[questionNumber].imgAttr.alt}">
           <button class="continue">Continue</button>
         </fieldset>
       </form>
@@ -61,6 +62,7 @@ function createHTML(gameArray) {
       <form class="feedback">
         <fieldset>
           <p>Wrong! The correct answer is ${correctAnswer}</p>
+          <img src="${gameArray[questionNumber].imgAttr.url}" alt="${gameArray[questionNumber].imgAttr.alt}" title="${gameArray[questionNumber].imgAttr.alt}">
           <button class="continue">Continue</button>
         </fieldset>
       </form>
@@ -83,6 +85,7 @@ function createHTML(gameArray) {
       <fieldset>
         <p>Thanks for Playing!</p>
         <p>And remember, Go Braves!!</p>
+        <img src="https://stadiumjourney.com/wp-content/uploads/2017/07/Overview-of-the-field-900x560.jpg" alt="An image of Suntrust Park" title="Suntrust Park">
       </fieldset>
     </form>
   `
