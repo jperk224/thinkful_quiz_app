@@ -118,7 +118,6 @@ button:hover {
   margin-top: 5px;
   border-radius: 50%;
   border: 2px solid #fff;
-  /* box-shadow: 2px 2px rgb(206, 17, 65); */
 }
 
 .hidden {
@@ -132,8 +131,6 @@ fieldset {
 
 .quit_game {
   font-size: 1.2em;
-  padding-top: 50px;
-
 }
 
 .question_tracker {
