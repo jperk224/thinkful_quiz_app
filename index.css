@@ -1,3 +1,6 @@
+/**********Mobile-first styles**********/
+/**********Media Queries found below**********/
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,7 +8,6 @@
 }
 
 html {
-  /* background-image: linear-gradient(-60deg, rgba(206,17,65, 0), rgba(19, 39, 79, 1)); */
   background-image: url('https://imagesvc.timeincapp.com/v3/fan/image?url=https%3A%2F%2Ftomahawktake.com%2Fwp-content%2Fuploads%2Fgetty-images%2F2017%2F08%2F831206048-cape-cod-league-championship-series.jpg.jpg&c=sc&w=850&h=560');
   background-size: cover;
   background-repeat: no-repeat;
@@ -149,15 +151,56 @@ fieldset {
 
 /**********Media Queries**********/
 
-/**********Phones**********/
-
-@media screen and (min-width: 320px) {
-}
-
 /**********Tablets**********/
 
 @media screen and (min-width: 720px) {
+  .quiz_header {
+    width: 500px;
+  } 
   
+  main {
+    width: 500px;
+    height: 500px;
+  }
+
+  fieldset {
+    margin-top: 5%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .welcome_form fieldset,
+  .question fieldset {
+    padding: 50px;
+  }
+
+  button {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+  }
+
+  .question_container img {
+    height: 300px;
+    width: 250px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  }
+
+  .question_tracker {
+    width: 500px;
+    justify-content: space-around;
+  }
+
+  .welcome_form button {
+    margin-left: -150px;
+  }
+
 }
 
 /**********Desktops**********/
