@@ -117,6 +117,8 @@ button:hover {
   margin-bottom: 5px;
   margin-top: 5px;
   border-radius: 50%;
+  border: 2px solid #fff;
+  /* box-shadow: 2px 2px rgb(206, 17, 65); */
 }
 
 .hidden {
