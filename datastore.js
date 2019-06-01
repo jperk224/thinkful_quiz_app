@@ -91,7 +91,7 @@ let questions = [
      },
      {
          id: 7,
-         question: 'The Atlanta Braves defeated the Cleveland Indians to with the 1995 World Series.  Who caught the ceremonial first pitch to open the series in Atlanta?',
+         question: 'The Atlanta Braves defeated the Cleveland Indians to win the 1995 World Series.  Who caught the ceremonial first pitch to open the series in Atlanta?',
          answers: [
              'Mike Mordecai',
              'Chipper Jones',
