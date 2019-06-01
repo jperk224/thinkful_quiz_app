@@ -1,9 +1,9 @@
+// Copy the original question array to shuffle
 function createGameArray(questionArray) {
   return [...questionArray];
 }
 
-// Shuffles the question index pointer array in place to randomize game questions
-// Taking advantage of pass by reference, modifying the array passed in as the argument
+// Shuffles the question array in place to randomize game questions
 function shuffle(questionArray) {
   for (let i = questionArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -12,13 +12,13 @@ function shuffle(questionArray) {
   return questionArray;
 }
 
-
+// Initialize global variables
 let gameArray = createGameArray(questions);
 shuffle(gameArray);
 let playerScore = 0;
 let questionNumber = 0;
 
-// Create html content
+// Create html content to render during quiz play
 function createHTML(gameArray) {
   let questionString = ``;
   let correctAnswer = ``;
@@ -100,7 +100,7 @@ function takeQuiz(playerScore, gameArray) {
   nextQuestion(gameArray);
 }
 
-// answer question
+// user answers an individual question
 function answerQuestion(correctAnswer) {
   $(".question_container").on("click", ".answer", function(event) {
     event.preventDefault();
@@ -117,7 +117,7 @@ function answerQuestion(correctAnswer) {
   });
 }
 
-// Continue to next quesiton from feedback div
+// Continue to next quesiton from feedback form
 function nextQuestion(gameArray) {
   $(".question_container").on("click", ".continue", function(event) {
     event.preventDefault(); 
@@ -145,6 +145,7 @@ function quitGame(gameArray) {
   });
 }
 
+// Output feedback based on score
 function printKudos(playerScore) {
   if(playerScore >= 9) {
     return `You are a true Braves fan!`
@@ -155,8 +156,6 @@ function printKudos(playerScore) {
   }
 }
 
-// Render the player's score
-// Parameters -- player's score, question index pointer array
 function renderScore(score, gameArray) {
   const scoreString = `<h2>Score: ${score}/${gameArray.length}</h2>`;
   $(".score").html(scoreString);
