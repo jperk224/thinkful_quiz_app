@@ -82,18 +82,7 @@ button {
   font-size: 0.9em;
 }
 
-button:hover {
-  cursor: pointer;
-}
 
-button:focus,
-button:hover {
-  border: 3px solid #fff;
-  background-image: linear-gradient(to right, rgb(19, 39, 79), #fff);
-  transition: all 0.5s;
-  color: #fff;
-  text-shadow: 1px 1px 2px rgb(206, 17, 65);
-}
 
 .question_container {
   width: 90%;
@@ -217,5 +206,18 @@ fieldset {
   .question_container img {
     height: 400px;
     width: 350px;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+  
+  button:focus,
+  button:hover {
+    border: 3px solid #fff;
+    background-image: linear-gradient(to right, rgb(19, 39, 79), #fff);
+    transition: all 0.5s;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgb(206, 17, 65);
   }
 }
