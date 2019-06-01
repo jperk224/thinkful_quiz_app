@@ -69,7 +69,8 @@ function createHTML(gameArray) {
     questionString = `
     <form class="game_over">
       <fieldset>
-        <p>Game Over! Your final score is ${playerScore} out of ${gameArray.length}</p>
+        <legend>Game Over!</legend>
+        <p>Your final score is ${playerScore} out of ${gameArray.length}</p>
         <p>${printKudos(playerScore)}</p>
         <p>Would you like to play again?</p>
         <button class="new_game">Yes</button>
