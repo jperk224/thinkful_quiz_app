@@ -29,9 +29,7 @@ function createHTML(gameArray) {
     questionString = `
     <form class="question">        
     <fieldset>
-                <legend>Question ${questionNumber + 1} of ${
-      gameArray.length
-    }</legend> 
+                <legend>Question ${questionNumber + 1}</legend> 
                 <p>${gameArray[questionNumber].question}</p>
                 <button class="answer">${
                   gameArray[questionNumber].answers[0]

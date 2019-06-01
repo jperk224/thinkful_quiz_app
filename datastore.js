@@ -40,7 +40,7 @@ let questions = [
          ],
          correctAnswer: 'Blooper',
          imgAttr: {
-             url: 'https://bloximages.newyork1.vip.townnews.com/mdjonline.com/content/tncms/assets/v3/editorial/d/09/d0961e6c-03b2-11e8-9f33-7b1181d96291/5a6cff6d54763.image.jpg?resize=1200%2C800',
+             url: 'http://www.ajc.com/rf/image_lowres/Pub/p9/AJC/2018/01/27/Images/012818%20braves%20chop%20fest%20pho(4).JPG',
              alt: 'A picture of Blooper'
          }
      },
@@ -55,7 +55,7 @@ let questions = [
          ],
          correctAnswer: '.401',
          imgAttr: {
-             url: 'https://myareanetwork-photos.s3.amazonaws.com/editorphotos/f/29284_1532961704.png',
+             url: 'https://vignette.wikia.nocookie.net/baseball/images/7/78/Chipper_Jones.jpg/revision/latest?cb=20110212174914',
              alt: 'A picture of Chipper Jones'
          }
      },
@@ -70,7 +70,7 @@ let questions = [
          ],
          correctAnswer: 'Three',
          imgAttr: {
-             url: 'https://i.pinimg.com/originals/10/08/60/1008600da4ad990743d8411d1df6485d.jpg',
+             url: 'https://i.pinimg.com/originals/14/c6/76/14c676c4e1144bc07cfcbfad44c7aa37.jpg',
              alt: 'A picture of Greg Maddux'
          }
      },
@@ -130,7 +130,7 @@ let questions = [
          ],
          correctAnswer: 'Roger Clemens',
          imgAttr: {
-             url: 'https://zackchum.files.wordpress.com/2010/12/brian-mccann.jpg',
+             url: 'https://i2.wp.com/outfieldflyrule.com/wp-content/uploads/2016/11/mccann_braves_catchers.jpg',
              alt: 'A picture of Brian McCann'
          }
      },
@@ -145,8 +145,8 @@ let questions = [
          ],
          correctAnswer: '2001',
          imgAttr: {
-             url: 'https://i.pinimg.com/originals/d0/6f/fc/d06ffc8c044d98c154071cfbe66815a5.jpg',
-             alt: 'A picture of the 2001 Atlanta Braves second baseman Marcus Giles'
+             url: 'https://imagesvc.timeincapp.com/v3/fan/image?url=https://tomahawktake.com/wp-content/uploads/getty-images/2018/08/1021523906.jpeg&c=sc&w=1600&h=1793',
+             alt: 'A picture of Atlanta Braves Celebration'
          }
      }
 ]
