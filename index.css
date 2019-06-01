@@ -204,3 +204,18 @@ fieldset {
 }
 
 /**********Desktops**********/
+
+@media screen and (min-width: 960px) {
+  main {
+    height: 600px;
+  } 
+
+  fieldset {
+    height: 500px;
+  }
+
+  .question_container img {
+    height: 400px;
+    width: 350px;
+  }
+}

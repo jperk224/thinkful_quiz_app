@@ -55,7 +55,7 @@ let questions = [
          ],
          correctAnswer: '.401',
          imgAttr: {
-             url: 'https://vignette.wikia.nocookie.net/baseball/images/7/78/Chipper_Jones.jpg/revision/latest?cb=20110212174914',
+             url: 'http://www3.pictures.zimbio.com/gi/Chipper+Jones+Miami+Marlins+v+Atlanta+Braves+7t9OZpMfYTBl.jpg',
              alt: 'A picture of Chipper Jones'
          }
      },
