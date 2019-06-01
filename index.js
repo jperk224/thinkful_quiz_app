@@ -70,6 +70,7 @@ function createHTML(gameArray) {
     <form class="game_over">
       <fieldset>
         <p>Game Over! Your final score is ${playerScore} out of ${gameArray.length}</p>
+        <p>${printKudos(playerScore)}</p>
         <p>Would you like to play again?</p>
         <button class="new_game">Yes</button>
         <button class="quit">No</button>
@@ -128,6 +129,7 @@ function nextQuestion(gameArray) {
     }
   });
 }
+
 function newGame() {
   $(".question_container").on("click", ".new_game", function(event) {
     event.preventDefault();
@@ -142,27 +144,15 @@ function quitGame(gameArray) {
   });
 }
 
-    // questionNumber = 0;
-    // playerScore = 0;
-    // shuffle(gameArray);
-    // renderScore(playerScore, gameArray);
-    // $(this).closest('form').remove();
-    // $(".js_game_start").closest("form").removeClass("hidden");
-    // $(".question_container").addClass("hidden");
-    // startGame();
-    // takeQuiz(playerScore, gameArray);
-  
-    
-  
-    // } else {
-    //   questionNumber = 0;
-    //   playerScore = 0;
-    //   shuffle(gameArray);
-    //   renderScore(playerScore, gameArray);
-    // }
-    // $(".feedback").remove();
-    // let questionAnswer = renderQuestion(gameArray);
-    // answerQuestion(questionAnswer);
+function printKudos(playerScore) {
+  if(playerScore >= 9) {
+    return `You are a true Braves fan!`
+  } else if(playerScore >= 5 && playerScore < 9) {
+    return `Not bad, but you need to watch more TBS`
+  } else {
+    return `Less than 5? You must be a Phillies Fan!`
+  }
+}
 
 // Render the player's score
 // Parameters -- player's score, question index pointer array
