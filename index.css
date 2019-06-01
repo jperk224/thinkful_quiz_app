@@ -49,7 +49,7 @@ h1 {
 main {
   margin-top: 5px;
   width: 280px;
-  height: 400px;
+  height: 350px;
   text-align: center;
 }
 
@@ -75,15 +75,13 @@ fieldset {
 
 button {
   width: 150px;
-  height: 50px;
-  background-image: linear-gradient(rgba(206,17,65), #fff);
-  background-image: -webkit-linear-gradient(rgba(206,17,65), #fff);
+  height: 35px;
   border-radius: 15px;
   color: rgb(19, 39, 79);
   font-size: 0.9em;
+  background-color: rgb(206,17,65);
+  font-weight: 600;
 }
-
-
 
 .question_container {
   width: 90%;
@@ -132,6 +130,7 @@ fieldset {
   flex-direction: row;
   justify-content: center;
   margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .question_tracker li {
@@ -145,12 +144,12 @@ fieldset {
 
 @media screen and (min-width: 720px) {
   .quiz_header {
-    width: 500px;
+    width: 450px;
   } 
   
   main {
-    width: 500px;
-    height: 500px;
+    width: 450px;
+    height: 450px;
   }
 
   fieldset {
@@ -183,7 +182,7 @@ fieldset {
   }
 
   .question_tracker {
-    width: 500px;
+    width: 450px;
     justify-content: space-around;
   }
 
@@ -207,6 +206,11 @@ fieldset {
   .question_container img {
     height: 400px;
     width: 350px;
+  }
+
+  button {
+    background-image: linear-gradient(rgba(206,17,65), #fff);
+    height: 50px;
   }
 
   button:hover {
