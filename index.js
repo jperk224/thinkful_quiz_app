@@ -145,17 +145,6 @@ function quitGame(gameArray) {
   });
 }
 
-// Output feedback based on score
-function printKudos(playerScore) {
-  if(playerScore >= 9) {
-    return `You are a true Braves fan!`
-  } else if(playerScore >= 5 && playerScore < 9) {
-    return `Not bad, but you need to watch more TBS`
-  } else {
-    return `Less than 5? You must be a Phillies Fan!`
-  }
-}
-
 function renderScore(score, gameArray) {
   const scoreString = `<h2>Score: ${score}/${gameArray.length}</h2>`;
   $(".score").html(scoreString);
