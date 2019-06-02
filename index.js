@@ -56,10 +56,17 @@ function nextQuestion(gameArray) {
   });
 }
 
-function newGame() {
+function newGame(gameArray) {
   $(".question_container").on("click", ".new_game", function(event) {
     event.preventDefault();
-    location.reload();
+    playerScore = 0;
+    questionNumber = 0;
+    renderScore(playerScore, gameArray);
+    renderQuestionTracker(gameArray);
+    $(".question_container").off();
+    takeQuiz(playerScore, gameArray);
+    newGame(gameArray);
+    quitGame(gameArray);
   });
 }
 
@@ -118,7 +125,7 @@ function playGame() {
   renderQuestionTracker(gameArray);
   startGame();
   takeQuiz(playerScore, gameArray);
-  newGame();
+  newGame(gameArray);
   quitGame(gameArray);
 }
 
