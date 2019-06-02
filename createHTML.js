@@ -76,7 +76,7 @@ function createHTML(gameArray) {
         <fieldset>
           <p>Thanks for Playing!</p>
           <p>And remember, Go Braves!!</p>
-          <img src="https://stadiumjourney.com/wp-content/uploads/2017/07/Overview-of-the-field-900x560.jpg" alt="An image of Suntrust Park" title="Suntrust Park">
+          <img src="./images/sunTrustpark.jpg">
         </fieldset>
       </form>
     `

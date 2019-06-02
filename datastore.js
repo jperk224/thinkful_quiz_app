@@ -10,7 +10,7 @@ let questions = [
         ],
         correctAnswer: 'Hank Aaron',
         imgAttr: {
-            url: 'https://sabr.org/sites/default/files/images/AaronHenry1.jpg',
+            url: './images/AaronHenry1.jpg',
             alt: 'A picture of Hank Aaron'
         }
     },
@@ -25,7 +25,7 @@ let questions = [
         ],
         correctAnswer: 'Andruw Jones - 19 years, 180 days',
         imgAttr: {
-            url: 'https://bloximages.newyork1.vip.townnews.com/postandcourier.com/content/tncms/assets/v3/editorial/b/e3/be3919bc-076e-11e8-85ad-534b9e9749c7/5a0b0bbf3fb1f.image.jpg?resize=1200%2C1010',
+            url: './images/AndruwJones1.jpg',
             alt: 'A picture of Andruw Jones'
         }
     },
@@ -40,7 +40,7 @@ let questions = [
          ],
          correctAnswer: 'Blooper',
          imgAttr: {
-             url: 'http://www.ajc.com/rf/image_lowres/Pub/p9/AJC/2018/01/27/Images/012818%20braves%20chop%20fest%20pho(4).JPG',
+             url: './images/Blooper1.jpg',
              alt: 'A picture of Blooper'
          }
      },
@@ -55,7 +55,7 @@ let questions = [
          ],
          correctAnswer: '.401',
          imgAttr: {
-             url: 'http://www3.pictures.zimbio.com/gi/Chipper+Jones+Miami+Marlins+v+Atlanta+Braves+7t9OZpMfYTBl.jpg',
+             url: './images/ChipperOBP.jpg',
              alt: 'A picture of Chipper Jones'
          }
      },
@@ -70,7 +70,7 @@ let questions = [
          ],
          correctAnswer: 'Three',
          imgAttr: {
-             url: 'https://i.pinimg.com/originals/14/c6/76/14c676c4e1144bc07cfcbfad44c7aa37.jpg',
+             url: './images/Maddux1.jpg',
              alt: 'A picture of Greg Maddux'
          }
      },
@@ -85,7 +85,7 @@ let questions = [
          ],
          correctAnswer: 'Kent Mercker',
          imgAttr: {
-             url: 'http://media.bizj.us/view/img/1721821/greg-maddux-john-smoltz-tom-glavine-3*400xx1972-1972-0-0.jpg',
+             url: './images/bigThree1.jpg',
              alt: 'A picture of the Braves Big Three'
          }
      },
@@ -100,7 +100,7 @@ let questions = [
          ],
          correctAnswer: 'Mike Mordecai',
          imgAttr: {
-             url: 'https://kronozio.blob.core.windows.net/images/card/bb381ef8a0e2446f9f82014cbb955055_front.jpg',
+             url: './images/mordecai1.jpg',
              alt: 'A picture of Mike Mordecai'
          }
      },
@@ -115,7 +115,7 @@ let questions = [
          ],
          correctAnswer: 'Chipper Jones',
          imgAttr: {
-             url: 'https://cdn.theathletic.com/app/uploads/2018/07/28123933/GettyImages-910305530-1024x683.jpg',
+             url: './images/ChipperHOF.jpg',
              alt: 'A picture of Chipper Jones'
          }
      },
@@ -130,7 +130,7 @@ let questions = [
          ],
          correctAnswer: 'Roger Clemens',
          imgAttr: {
-             url: 'https://i2.wp.com/outfieldflyrule.com/wp-content/uploads/2016/11/mccann_braves_catchers.jpg',
+             url: './images/mccann1.jpg',
              alt: 'A picture of Brian McCann'
          }
      },
@@ -145,7 +145,7 @@ let questions = [
          ],
          correctAnswer: '2001',
          imgAttr: {
-             url: 'https://imagesvc.timeincapp.com/v3/fan/image?url=https://tomahawktake.com/wp-content/uploads/getty-images/2018/08/1021523906.jpeg&c=sc&w=1600&h=1793',
+             url: './images/bravesWin.jpg',
              alt: 'A picture of Atlanta Braves Celebration'
          }
      }
