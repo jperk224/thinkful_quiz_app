@@ -8,7 +8,7 @@
 }
 
 html {
-  background-image: url('https://imagesvc.timeincapp.com/v3/fan/image?url=https%3A%2F%2Ftomahawktake.com%2Fwp-content%2Fuploads%2Fgetty-images%2F2017%2F08%2F831206048-cape-cod-league-championship-series.jpg.jpg&c=sc&w=850&h=560');
+  background-image: url('./images/catcher.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
