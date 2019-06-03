@@ -76,7 +76,7 @@ function createHTML(gameArray) {
         <fieldset>
           <p>Thanks for Playing!</p>
           <p>And remember, Go Braves!!</p>
-          <img src="./images/sunTrustpark.jpg">
+          <img src="./images/sunTrustpark-min.jpg">
         </fieldset>
       </form>
     `

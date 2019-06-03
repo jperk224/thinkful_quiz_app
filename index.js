@@ -61,6 +61,7 @@ function newGame(gameArray) {
     event.preventDefault();
     playerScore = 0;
     questionNumber = 0;
+    shuffle(gameArray);
     renderScore(playerScore, gameArray);
     renderQuestionTracker(gameArray);
     $(".question_container").off();

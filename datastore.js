@@ -10,7 +10,7 @@ let questions = [
         ],
         correctAnswer: 'Hank Aaron',
         imgAttr: {
-            url: './images/AaronHenry1.jpg',
+            url: './images/AaronHenry1-min.jpg',
             alt: 'A picture of Hank Aaron'
         }
     },
@@ -25,7 +25,7 @@ let questions = [
         ],
         correctAnswer: 'Andruw Jones - 19 years, 180 days',
         imgAttr: {
-            url: './images/AndruwJones1.jpg',
+            url: './images/AndruwJones1-min.jpg',
             alt: 'A picture of Andruw Jones'
         }
     },
@@ -40,7 +40,7 @@ let questions = [
          ],
          correctAnswer: 'Blooper',
          imgAttr: {
-             url: './images/Blooper1.jpg',
+             url: './images/Blooper1-min.jpg',
              alt: 'A picture of Blooper'
          }
      },
@@ -55,7 +55,7 @@ let questions = [
          ],
          correctAnswer: '.401',
          imgAttr: {
-             url: './images/ChipperOBP.jpg',
+             url: './images/ChipperOBP-min.jpg',
              alt: 'A picture of Chipper Jones'
          }
      },
@@ -70,7 +70,7 @@ let questions = [
          ],
          correctAnswer: 'Three',
          imgAttr: {
-             url: './images/Maddux1.jpg',
+             url: './images/Maddux1-min.jpg',
              alt: 'A picture of Greg Maddux'
          }
      },
@@ -85,7 +85,7 @@ let questions = [
          ],
          correctAnswer: 'Kent Mercker',
          imgAttr: {
-             url: './images/bigThree1.jpg',
+             url: './images/bigThree1-min.jpg',
              alt: 'A picture of the Braves Big Three'
          }
      },
@@ -100,7 +100,7 @@ let questions = [
          ],
          correctAnswer: 'Mike Mordecai',
          imgAttr: {
-             url: './images/mordecai1.jpg',
+             url: './images/mordecai1-min.jpg',
              alt: 'A picture of Mike Mordecai'
          }
      },
@@ -115,7 +115,7 @@ let questions = [
          ],
          correctAnswer: 'Chipper Jones',
          imgAttr: {
-             url: './images/ChipperHOF.jpg',
+             url: './images/ChipperHOF-min.jpg',
              alt: 'A picture of Chipper Jones'
          }
      },
@@ -130,7 +130,7 @@ let questions = [
          ],
          correctAnswer: 'Roger Clemens',
          imgAttr: {
-             url: './images/mccann1.jpg',
+             url: './images/mccann1-min.jpg',
              alt: 'A picture of Brian McCann'
          }
      },
@@ -145,7 +145,7 @@ let questions = [
          ],
          correctAnswer: '2001',
          imgAttr: {
-             url: './images/bravesWin.jpg',
+             url: './images/bravesWin-min.jpg',
              alt: 'A picture of Atlanta Braves Celebration'
          }
      }
