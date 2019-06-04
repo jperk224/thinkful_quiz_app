@@ -109,7 +109,7 @@ let questions = [
          question: 'Which of these players spent their entire career wearing an Atlanta Braves uniform?',
          answers: [
              'Chipper Jones',
-             'Javy Lopex',
+             'Javy Lopez',
              'Greg Maddux',
              'Tom Glavine'
          ],
