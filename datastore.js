@@ -10,7 +10,7 @@ let questions = [
         ],
         correctAnswer: 'Hank Aaron',
         imgAttr: {
-            url: './images/AaronHenry1-min.jpg',
+            url: './images/hank-aaron-min.jpg',
             alt: 'A picture of Hank Aaron'
         }
     },
