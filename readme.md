@@ -2,9 +2,13 @@
 permalink: /index.html
 ---
 
-# Thinkful Quiz App
+# Atlanta Braves Quiz
 
-A front end, responsive quiz app combining the best html, css, and jQuery have to offer.  Enjoy!!
+Test your knowledge of Atlanta Braves baseball in this front end, fully responsive quiz app!  This app blends jQuery with Javascript and features recursive function and randomization techniques so no consecutive playthrough is the same!
 
-Rules:
-1. Enjoy!
+
+Technologies used:
+* HTML5
+* CSS3
+* JavaScript
+* jQuery
